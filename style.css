@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+*{
+    font-family:'Space Grotesk';
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+
+body {
+    align-items: center;
+}
+
+form {
+    border:2px solid red;
+}
+
+.M-Y-CVC-Wrap {
+    display:flex;
+    align-items: center;
+}
+
+.CVC-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.card {
+    width: 320px;
+    height: 160px;
+    color:white;
+    border-radius: 12px;
+    padding: 40px 10px;
+}
+
+
+.credit-card .card-number, .card-details, .card-holder, .card-info {
+    display:flex;
+}
+
+.credit-card {
+    background: url(./images/bg-card-front.png) center/cover no-repeat;
+    color: white;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.credit-card-logo {
+    position:relative;
+    bottom:30px;
+    right:0px;
+    width:60px;
+}
+
+.card-info {
+    justify-content: space-between;
+    align-items: center;
+    width:95%;
+}
+
+
+.card-number {
+    font-size: 21px;
+    letter-spacing:3px;
+    justify-content: center;
+    margin-bottom:10px;
+}
+
+.card-details {
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.card-holder {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.expiration {
+    font-size: 13px;
+    padding: 5px;
+}
+
+
+.cvc-card {
+    color: white;
+    background: url(./images/bg-card-back.png) center/cover no-repeat;
+}
+
+.card-cvc-info {
+    position:relative;
+    top:30px;
+    left:240px;
+    font-size:13px;
+}
