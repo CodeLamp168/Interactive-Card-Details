@@ -7,6 +7,13 @@
     margin:0;
 }
 
+:root {
+    --input-error:(hsl(0, 100%, 66%));
+    --input-active-start: hsla(249, 48%, 35%, 0.753);
+    --input-active-end: hsl(278, 94%, 30%);
+    --input-valid:(hsl(145, 63%, 49%));
+}
+
 body {
     align-items: center;
     height:100vh;
@@ -144,7 +151,11 @@ input {
     outline:transparent;
     border-radius:10px;
     border:2px solid hsl(270, 3%, 87%);
-
+    transition: border-color 0.3s ease-in-out;
+}
+input:focus {
+    border-color: var(--input-active-end);
+    animation: border-animation 0.5s  alternate ease-in-out;
 }
 
 .M-Y-CVC-Wrap {
@@ -177,7 +188,7 @@ input[type="text"] {
 }
 
 button {
-    padding:1em;
+    padding:1.5em 1em;
     background-color:hsl(278, 68%, 11%);
     color:white;
     letter-spacing: 2px;
@@ -296,5 +307,15 @@ body {
     
     .cvc-card {
         transform: translate(50px, 0px);
+    }
+}
+
+
+@keyframes border-animation {
+    0% {
+        border-color: var(--input-active-start);
+    }
+    100% {
+        border-color: var(--input-active-end);
     }
 }
