@@ -26,15 +26,25 @@ body {
 
 
 .card-wrap {
+    margin-top:10px;
     max-width:550px;
+}
+
+.credit-card-info-wrap {
+    position:relative;
+    bottom:-20px;
+    display:flex;
+    flex-direction:column ;
+    align-items: center;
 }
 
 .card {
     width: 320px;
-    height: 160px;
+    height: 190px;
     color:white;
     border-radius: 12px;
     padding: 40px 10px;
+    position:relative;
 }
 
 
@@ -51,6 +61,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     z-index:2;
+    bottom:-10px;
 }
 .credit-card-logo {
     position:relative;
@@ -96,7 +107,7 @@ body {
 
 .card-cvc-info {
     position:relative;
-    top:30px;
+    top:45px;
     left:240px;
     font-size:13px;
 }
@@ -129,6 +140,10 @@ label, button {
 input {
     height:50px;
     width:100%;
+    outline:transparent;
+    border-radius:10px;
+    border:2px solid hsl(270, 3%, 87%);
+
 }
 
 .M-Y-CVC-Wrap {
@@ -162,13 +177,21 @@ input[type="text"] {
 
 button {
     padding:1em;
+    background-color:hsl(278, 68%, 11%);
+    color:white;
+    letter-spacing: 2px;
+    border-radius:10px;
+    border:none;
+    outline:transparent;
+    cursor:pointer;
 }
+
 
 
 body {
     background-image: url(./images/bg-main-mobile.png);
     background-repeat: no-repeat;
-    background-size: 100% 35%;
+    background-size: 100% 30%;
     background-position: center top;
 }
 
@@ -188,6 +211,27 @@ body {
     }
 }
 
+@media(min-width:420px){
+
+    .card {
+        width:340px;
+    }
+
+
+
+    .credit-card {
+        bottom:-13px;
+        left:-40px;
+    }
+    .cvc-card {
+        bottom:-80px;
+        right:-20px;
+    }
+    .card-cvc-info {
+        left:260px;
+    }
+}
+
 @media(min-width:1230px){
     .content-container {
         flex-direction: row;
@@ -202,23 +246,18 @@ body {
         flex-direction: column-reverse;
     }
 
-    .credit-card-info-wrap {
-        position:relative;
-        bottom:-20px;
-        display:flex;
-        flex-direction:column ;
-        align-items: center;
-    }
+  
 
     .card-cvc-info {
-        top:54px;
-        left:290px;
-        font-size:22px;
+        top:50px;
+        left:300px;
+        font-size:18px;
     }
 
     .card {
         width:400px;
         height:210px;
+        bottom:0px;
     }
 
     .credit-card > .credit-card-logo {
@@ -230,8 +269,16 @@ body {
         white-space:nowrap;
     }
 
-
     .card-info > p {
         font-size:16px;
+    }
+
+    .card-wrap {
+        display:flex;
+        gap:2em;
+    }
+
+    .card-wrap > .credit-card {
+        right:100px;
     }
 }
