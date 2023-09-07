@@ -45,6 +45,7 @@ body {
     border-radius: 12px;
     padding: 40px 10px;
     position:relative;
+    transition:transform 300ms ease-in;
 }
 
 
@@ -218,15 +219,15 @@ body {
     }
 
 
-
     .credit-card {
-        bottom:-13px;
-        left:-40px;
+        transform: translate(-40px, -50px);
     }
+    
     .cvc-card {
-        bottom:-80px;
-        right:-20px;
+        transform: translate(20px, 40px);
     }
+    
+
     .card-cvc-info {
         left:260px;
     }
@@ -278,7 +279,22 @@ body {
         gap:2em;
     }
 
-    .card-wrap > .credit-card {
-        right:100px;
+
+    .credit-card {
+        transform: translate(-0px, 0px);
+    }
+    
+    .cvc-card {
+        transform: translate(0px, 0px);
+    }
+}
+
+@media(min-width:1440px){
+    .credit-card {
+        transform: translate(-80px, 0px);
+    }
+    
+    .cvc-card {
+        transform: translate(50px, 0px);
     }
 }
