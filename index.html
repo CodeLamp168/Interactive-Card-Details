@@ -14,15 +14,15 @@
 <main class="content-container">
   <div class="card-wrap">
     <div class="cvc-card card">
-      <p class="card-cvc-info">000</p>
+      <p class="card-cvc-info" id="credit-card-cvc">000</p>
    </div>
     <div class="credit-card card">
         <img class="credit-card-logo" src="/images/card-logo.svg" alt="404">
         <div class="credit-card-info-wrap">
-          <p class="card-number">0000 0000 0000 0000</p>
+          <p class="card-number" id="credit-card-number" >0000 0000 0000 0000</p>
           <div class="card-info">
-                  <p class="card-holder">Jane Appleseed</p>
-                  <p class="expiration">00/00</p>
+                  <p class="card-holder" id="credit-card-holder" pattern="[A-Za-z]*">Jane Appleseed</p>
+                  <p class="expiration" id="credit-card-exp"><span id="exp-m">00</span> / <span id="exp-y">00</span></p>
           </div>
         </div>
     </div>
@@ -30,33 +30,34 @@
   
   
   
-    <form>
+    <form id="cardForm">
       <div class="card-holder-container input-flex">
           <label for="cardholderName">Cardholder Name</label>
-          <input type="text" id="cardholderName" placeholder="e.g. Jane Appleseed" required>
+          <input type="text" id="cardholderName" placeholder="e.g. Jane Appleseed" pattern="[A-Za-z- ]*" required>
       </div>
       <div class="card-number-container input-flex">
           <label for="cardNumber">Card Number</label>
-          <input type="text" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" required>
+          <input type="text" id="cardNumber" pattern="[0-9 ]*" maxlength="19" placeholder="e.g. 1234 5678 9123 0000" required>
       </div>
   
       <div class="M-Y-CVC-Wrap">
         <div class="M-Y-container input-flex">
             <label for="expMonth">Exp. Date <span>(MM/YY)</span></label>
             <div class="M-Y-Wrap">
-              <input type="text" id="expMonth" placeholder="MM" required>
-              <input type="text" id="expYear" placeholder="YY" required>
+              <input type="text" id="expMonth" pattern="[0-9]*" maxlength="2" placeholder="MM" required>
+              <input type="text" id="expYear" pattern="[0-9]*" maxlength="2" placeholder="YY" required>
             </div>
         </div>
         <div class="CVC-container input-flex">
             <label for="cvc">CVC</label>
-            <input type="text" id="cvc" placeholder="e.g. 123" required>
+            <input type="text" id="cvc" placeholder="e.g. 123" maxlength="3" required>
         </div>
       </div>
   
-      <button type="submit">Submit</button>
+      <button type="submit" id="submitButton" disabled>Submit</button>
   </form>
 </main>
+
 
 <!-- 
   Thank you!
@@ -67,5 +68,8 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="form.js"></script>
+  
 </body>
 </html>

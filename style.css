@@ -11,7 +11,7 @@
     --input-error:(hsl(0, 100%, 66%));
     --input-active-start: hsla(249, 48%, 35%, 0.753);
     --input-active-end: hsl(278, 94%, 30%);
-    --input-valid:(hsl(145, 63%, 49%));
+    --input-valid:();
 }
 
 body {
@@ -87,7 +87,7 @@ body {
 
 .card-number {
     font-size: 21px;
-    letter-spacing:3px;
+    letter-spacing:1px;
     justify-content: center;
     margin-bottom:10px;
 }
@@ -123,7 +123,7 @@ body {
 form {
     display:grid;
     width:100%;
-    gap:1em;
+    gap:3em;
     max-width:450px;
 
 }
@@ -145,18 +145,7 @@ label, button {
     text-transform: uppercase;
 }
 
-input {
-    height:50px;
-    width:100%;
-    outline:transparent;
-    border-radius:10px;
-    border:2px solid hsl(270, 3%, 87%);
-    transition: border-color 0.3s ease-in-out;
-}
-input:focus {
-    border-color: var(--input-active-end);
-    animation: border-animation 0.5s  alternate ease-in-out;
-}
+
 
 .M-Y-CVC-Wrap {
     display: flex;
@@ -319,3 +308,38 @@ body {
         border-color: var(--input-active-end);
     }
 }
+
+
+
+/*Input js */
+input {
+    height:50px;
+    width:100%;
+    outline:transparent;
+    border-radius:10px;
+    border:2px solid hsl(270, 3%, 87%);
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: var(--input-active-end);
+    animation: border-animation 0.5s  alternate ease-in-out;
+}
+
+.valid{
+    border:2px solid rgb(22, 184, 22) ;
+}
+
+.valid:focus {
+    border-color: hsl(145, 77%, 51%);
+    animation: border-animation 0.5s  alternate ease-in-out;
+}
+
+.invalid {
+    border:2px solid red;
+}
+
+.invalid:focus {
+    border:2px solid red;
+}
+
