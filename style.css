@@ -11,7 +11,8 @@
     --input-error:(hsl(0, 100%, 66%));
     --input-active-start: hsla(249, 48%, 35%, 0.753);
     --input-active-end: hsl(278, 94%, 30%);
-    --input-valid:();
+    --dark-purple-font:
+
 }
 
 body {
@@ -64,7 +65,6 @@ body {
 
 .credit-card {
     background: url(./images/bg-card-front.png) center/cover no-repeat;
-    color: white;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
@@ -131,6 +131,7 @@ form {
 label {
     font-size: clamp(1rem, 0.6875rem + 1vw, 1.25rem);
     color:hsl(278, 68%, 11%);
+    
 }
 
 
@@ -308,6 +309,44 @@ body {
         border-color: var(--input-active-end);
     }
 }
+
+.thank-you-container {
+    display:flex;
+    flex-direction: column;
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    max-width:450px;
+    gap:3em;
+}
+
+
+
+
+.thank-you-container h1 {
+    font-weight:500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom:0.3em;
+}
+
+.thank-you-container p {
+    color:hsl(279, 6%, 55%);
+    font-size:20px;
+}
+
+
+.thank-you-container > button {
+    width:92%;
+}
+
+
+/* <div class="thank-you-container">
+<h1>Thank you!</h1>
+<p>We've added your card details</p>
+<button id="continue-btn">Continue</button>
+</div> */
 
 
 
