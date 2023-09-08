@@ -18,7 +18,11 @@ const cardYearValidation = /^\d{2}$/
 const cardCVCValidation = /^\d{3}$/
 
 const form = document.getElementById('cardForm');
+const completeContent = document.getElementById('thank-you-display')
 const submitButton = document.getElementById('submitButton');
+const continueButton = document.getElementById('continue-btn')
+
+
 
 
 function validation(inputElement, cardDisplay, regexPattern) {
@@ -73,12 +77,13 @@ cardHolderNameInput.addEventListener('input', () => {
 cardNumberInput.addEventListener('input', () => {
     formatCardNumber(cardNumberInput); 
     validation(cardNumberInput, cardDisplayNumber, cardNumberValidation); 
+    resetFunction(cardNumberInput)
     const trueValue = cardNumberInput.getAttribute('data-true-value');
-    console.log('True Value:', trueValue);
 });
 
 expMonthInput.addEventListener('input', () => {
     validation(expMonthInput, cardDisplayMonth, cardMonthValidation);
+    resetFunction(cardNumberInput)
 });
 
 expYearInput.addEventListener('input', () => {
@@ -112,6 +117,21 @@ form.addEventListener('input', () => {
 
 
 form.addEventListener('submit', (event) => {
-    window.location.reload();
+    event.preventDefault();
+    form.style.display = 'none'
+    completeContent.style.display = 'flex'
     console.log('Form submitted successfully!');
 });
+
+continueButton.addEventListener('click', () => {
+    location.reload();
+    console.log('button pressed');
+});
+
+window.addEventListener('load', function () {
+    cardHolderNameInput.value = '';
+    cardNumberInput.value = '';
+    expMonthInput.value = '';
+    expYearInput.value = '';
+    cvcInput.value = '';
+  });
