@@ -46,7 +46,7 @@ body {
     bottom:-20px;
     display:flex;
     flex-direction:column ;
-    align-items: center;
+    align-items: left;
 }
 
 .card {
@@ -91,7 +91,8 @@ body {
 .card-number {
     font-size: 21px;
     letter-spacing:1px;
-    justify-content: center;
+    justify-content: left;
+    margin-left:10px;
     margin-bottom:10px;
 }
 
