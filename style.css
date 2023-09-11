@@ -47,6 +47,7 @@ body {
     display:flex;
     flex-direction:column ;
     align-items: left;
+    margin-left:5px;
 }
 
 .card {
@@ -89,10 +90,9 @@ body {
 
 
 .card-number {
-    font-size: 21px;
+    font-size: 22px;
     letter-spacing:1px;
     justify-content: left;
-    margin-left:10px;
     margin-bottom:10px;
 }
 
@@ -102,12 +102,12 @@ body {
 }
 
 .card-holder {
-    font-size: 15px;
+    font-size: 16px;
     padding: 5px;
 }
 
 .expiration {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 
@@ -119,9 +119,9 @@ body {
 
 .card-cvc-info {
     position:relative;
-    top:45px;
-    left:240px;
-    font-size:13px;
+    top:44px;
+    left:245px;
+    font-size:15px;
 }
 
 form {
@@ -146,6 +146,7 @@ label {
 .input-flex {
     display:flex;
     flex-direction: column;
+    position:relative;
 }
 
 label, button {
@@ -257,9 +258,9 @@ body {
   
 
     .card-cvc-info {
-        top:50px;
+        top:53px;
         left:300px;
-        font-size:18px;
+        font-size:16px;
     }
 
     .card {
@@ -273,12 +274,8 @@ body {
     }
 
     .credit-card-info-wrap > P {
-        font-size:27px;
+        font-size:25px;
         white-space:nowrap;
-    }
-
-    .card-info > p {
-        font-size:16px;
     }
 
     .card-wrap {
@@ -374,10 +371,29 @@ input:focus {
 }
 
 .invalid {
-    border:2px solid red;
+    border:2px solid rgba(255, 0, 0, 0.76);
 }
 
 .invalid:focus {
-    border:2px solid red;
+    border:2px solid rgba(255, 0, 0, 0.877);
 }
 
+
+
+
+.error-notification {
+    transform:translateY(10px);
+    font-size:13px;
+    color:rgba(255, 0, 0, 0.74);
+    position:absolute;
+    float:bottom;
+    z-index:3;
+    bottom:-10px;
+}
+
+.invalid-notification {
+    display:block;
+}
+.notification-hide{
+    display:none;
+}

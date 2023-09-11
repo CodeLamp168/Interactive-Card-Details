@@ -22,16 +22,24 @@ const completeContent = document.getElementById('thank-you-display')
 const submitButton = document.getElementById('submitButton');
 const continueButton = document.getElementById('continue-btn')
 
+const errorDiv = document.createElement('div')
+errorDiv.className = 'error-notification'
 
 
 
-function validation(inputElement, cardDisplay, regexPattern) {
+
+
+
+function validation(inputElement, cardDisplay, regexPattern, errorText) {
     const value = inputElement.value.trim();
     const cardDisplayOriginalHTML = cardDisplay.innerHTML;
+    inputElement.parentElement.appendChild(errorDiv);
+
     
 
     if (value === '') {
         inputElement.classList.remove('valid', 'invalid');
+        errorDiv.classList.add('notification-hide')
         inputElement.classList.add('empty');
         cardDisplay.textContent = cardDisplayOriginalHTML;
 
@@ -39,16 +47,20 @@ function validation(inputElement, cardDisplay, regexPattern) {
     else if (regexPattern.test(value)) {
         inputElement.classList.remove('invalid');
         inputElement.classList.add('valid');
+        errorDiv.classList.remove('invalid-notification')
+        errorDiv.classList.add('notification-hide')
         cardDisplay.textContent = value;
 
     } else {
         inputElement.classList.remove('valid');
         inputElement.classList.add('invalid');
+        errorDiv.classList.remove('notification-hide')
+        errorDiv.classList.add('invalid-notification')
         cardDisplay.textContent = cardDisplayOriginalHTML;
+        errorDiv.textContent = errorText
     }
 
     inputElement.setAttribute('data-true-value', value);
-    console.log()
 
 }
 
@@ -71,27 +83,27 @@ function formatCardNumber(inputElement) {
 
 
 cardHolderNameInput.addEventListener('input', () => {
-    validation(cardHolderNameInput, cardDisplayName, cardHolderValidation);
+    validation(cardHolderNameInput, cardDisplayName, cardHolderValidation, 'Please enter alphabetic characters only');
 });
 
 cardNumberInput.addEventListener('input', () => {
     formatCardNumber(cardNumberInput); 
-    validation(cardNumberInput, cardDisplayNumber, cardNumberValidation); 
+    validation(cardNumberInput, cardDisplayNumber, cardNumberValidation, 'Please enter 16 numeric digits only'); 
     resetFunction(cardNumberInput)
     const trueValue = cardNumberInput.getAttribute('data-true-value');
 });
 
 expMonthInput.addEventListener('input', () => {
-    validation(expMonthInput, cardDisplayMonth, cardMonthValidation);
+    validation(expMonthInput, cardDisplayMonth, cardMonthValidation, 'Must be filled');
     resetFunction(cardNumberInput)
 });
 
 expYearInput.addEventListener('input', () => {
-    validation(expYearInput, cardDisplayYear, cardYearValidation);
+    validation(expYearInput, cardDisplayYear, cardYearValidation, 'Must be filled');
 });
 
 cvcInput.addEventListener('input', () => {
-    validation(cvcInput, cardDisplayCVC, cardCVCValidation);
+    validation(cvcInput, cardDisplayCVC, cardCVCValidation, 'Must be filled');
 });
 
 
