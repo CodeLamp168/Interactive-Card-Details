@@ -59,9 +59,11 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-const handleInput = (validationRegex, inputDisplay) => (e) => {
+
+
+const handleInput = (validationRegex, inputDisplay, inputData) => (e) => {
     const inputValue = e.target.value;
-  
+
     if(e.target === usernameElement){
         if (inputValue.length > 28) {
             inputDisplay.innerText = inputValue.slice(0, 28) + "...";
@@ -70,25 +72,46 @@ const handleInput = (validationRegex, inputDisplay) => (e) => {
         }
     }
 
-    if(e.target === cardNumberElement){
+    else if(e.target === cardNumberElement){
         inputDisplay.innerText = inputValue.replace(/(\d{4})(?=\d)/g, '$1 ');
     } 
 
-    inputDisplay.innerText = inputValue
+    else {
+      inputDisplay.innerText = inputValue
+    }
     
         
     if (validationRegex.test(inputValue)) {
       e.target.classList.add('valid-input');
       e.target.classList.remove('invalid-input');
+      localStorage.setItem(inputData, inputValue)
     } else {
       e.target.classList.add('invalid-input');
       e.target.classList.remove('valid-input');
+      localStorage.removeItem(inputData)
+    }
+
+
+  };
+
+  const addDataToInput = (inputData, inputDisplay) => {
+    const storedValue = localStorage.getItem(inputData);
+    if (storedValue) {
+      inputDisplay.innerText = storedValue;
     }
   };
   
+  window.onload = () => {
+    addDataToInput('username-data', cardHolderDisplay);
+    addDataToInput('cardnumber-data', cardNumberDisplay);
+    addDataToInput('month-data', cardMonthDisplay);
+    addDataToInput('year-data', cardYearDisplay);
+    addDataToInput('cvc-data', cardCvcDisplay);
+  };
+
   
-  usernameElement.addEventListener("keyup", handleInput(userNameValidation, cardHolderDisplay));
-  cardNumberElement.addEventListener("keyup", handleInput(cardNumberValidation, cardNumberDisplay));
-  expMonthElement.addEventListener("keyup", handleInput(monthValidation, cardMonthDisplay));
-  expYearElement.addEventListener("keyup", handleInput(yearValidation, cardYearDisplay));
-  cvcElement.addEventListener("keyup", handleInput(cvcValidation, cardCvcDisplay));
+  usernameElement.addEventListener("keyup", handleInput(userNameValidation, cardHolderDisplay, 'username-data'));
+  cardNumberElement.addEventListener("keyup", handleInput(cardNumberValidation, cardNumberDisplay, 'cardnumber-data'));
+  expMonthElement.addEventListener("keyup", handleInput(monthValidation, cardMonthDisplay, 'month-data'));
+  expYearElement.addEventListener("keyup", handleInput(yearValidation, cardYearDisplay, 'year-data'));
+  cvcElement.addEventListener("keyup", handleInput(cvcValidation, cardCvcDisplay, 'cvc-data'));
