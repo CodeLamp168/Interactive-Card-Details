@@ -9,10 +9,8 @@
 
 :root {
     --input-error:(hsl(0, 100%, 66%));
-    --input-active-start: hsla(249, 48%, 35%, 0.753);
-    --input-active-end: hsl(278, 94%, 30%);
-    --dark-purple-font:
-
+    --input-active-start: hsla(250, 30%, 42%, 0.753);
+    --input-active-end: hsl(278, 52%, 42%);
 }
 
 body {
@@ -361,39 +359,10 @@ input:focus {
     animation: border-animation 0.5s  alternate ease-in-out;
 }
 
-.valid{
-    border:2px solid rgb(22, 184, 22) ;
+.invalid-input {
+    border-color:red;
 }
 
-.valid:focus {
-    border-color: hsl(145, 77%, 51%);
-    animation: border-animation 0.5s  alternate ease-in-out;
-}
-
-.invalid {
-    border:2px solid rgba(255, 0, 0, 0.76);
-}
-
-.invalid:focus {
-    border:2px solid rgba(255, 0, 0, 0.877);
-}
-
-
-
-
-.error-notification {
-    transform:translateY(10px);
-    font-size:13px;
-    color:rgba(255, 0, 0, 0.74);
-    position:absolute;
-    float:bottom;
-    z-index:3;
-    bottom:-10px;
-}
-
-.invalid-notification {
-    display:block;
-}
-.notification-hide{
-    display:none;
+.valid-input {
+    border-color:green;
 }
