@@ -16,7 +16,7 @@
 body {
     align-items: center;
     height:100vh;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 
@@ -29,6 +29,7 @@ body {
     gap:4em;
     margin:2px;
     min-height:100vh;
+    overflow-x:hidden;
 }
 
 
